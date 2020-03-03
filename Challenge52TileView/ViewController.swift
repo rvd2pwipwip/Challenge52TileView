@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private let padding: CGFloat = 50
+    private let heightRatio: CGFloat = 0.25
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +21,10 @@ class ViewController: UIViewController {
     private func setupView() {
         view.addSubview(tileView)
         NSLayoutConstraint.activate([
-            tileView.topAnchor.constraint(equalTo: view.topAnchor),
-            tileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tileView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            tileView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            tileView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+            tileView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: heightRatio)
         ])
     }
 
